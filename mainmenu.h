@@ -3,6 +3,9 @@
 
 #include<iostream>
 #include<vector>
+#include <conio.h>
+
+using namespace std;
 
 namespace tetris {
 	class GameTable {
@@ -15,7 +18,23 @@ namespace tetris {
 
 	};
 
-
+	class MainMenu {
+	public:
+		MainMenu() {
+			cout << "\n\n\n\n";
+			cout << "\t\t"; cout << "@@@@@@@@@@@@  @@@@@@@@@   @@@@@@@@@@@  @@@@@@@@   @   @@@@@@@@@@@\n";
+			cout << "\t\t"; cout << "      @       @                @       @      @   @   @          \n";
+			cout << "\t\t"; cout << "      @       @                @       @      @   @   @          \n";
+			cout << "\t\t"; cout << "      @       @@@@@@@@@        @       @     @    @   @@@@@@@@@@@\n";
+			cout << "\t\t"; cout << "      @       @                @       @ @ @      @             @\n";
+			cout << "\t\t"; cout << "      @       @                @       @     @    @             @\n";
+			cout << "\t\t"; cout << "      @       @@@@@@@@@        @       @      @   @   @@@@@@@@@@@\n\n\n\n\n";
+			cout << "\t\t"; cout << "                Press any key if you want to start\n\n\n\n\n\n\n";
+			cout << "\t\t"; cout << "                   TetrisGame1.0 By SeokJinLee\n";
+			_getch(); //get user input
+			system("cls"); //console clear
+		}
+	};
 }
 
 #endif

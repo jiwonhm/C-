@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "mainmenu.h"
-#define TABLE_X 20 //x-axix of tetris
-#define TABLE_Y 30 //y-axix of tetris
 
 using namespace std;
 
