@@ -20,169 +20,24 @@
 
 
 namespace tetris {
-	void CursorView(char show) {
-		HANDLE hConsole;
-		CONSOLE_CURSOR_INFO ConsoleCursor; //CONSOLE_CURSOR_INFO 주로 커서의 가시성(bVisible)과 커서의 크기(dwSize)를 관리
+	void CursorView(char show);
 
-		hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // GetStdHandle 내장함수: 콘솔에 적용
-
-		ConsoleCursor.bVisible = show; //visible = 1, invisible = 0
-		ConsoleCursor.dwSize = 1; // 1~100 숫자가 클 수록 커서가 더 두꺼워짐
-
-		SetConsoleCursorInfo(hConsole, &ConsoleCursor); //내장함수: CONSOLE_CURSOR_INFO 구조체를 사용하여 커서의 상태를 설정
-		//매개변수 순서 (어떤 콘솔창에 변경을 적용할지, 어떻게 변경할지 정보를 담고 있음)
-	}
-
-	void gotoxy(int x, int y) {
-		COORD pos = { x,y };
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-	}
+	void gotoxy(int x, int y);
 
 		//Block 1
-		const int block1[4][4][4] = {
-			{
-				{0,0,0,0},
-				{0,0,0,0},
-				{2,2,2,2},
-				{0,0,0,0}
-			},
-			{
-				{0,0,2,0},
-				{0,0,2,0},
-				{0,0,2,0},
-				{0,0,2,0}
-			},
-			{
-				{0,0,0,0},
-				{0,0,0,0},
-				{2,2,2,2},
-				{0,0,0,0}
-			},
-			{
-				{0,0,2,0},
-				{0,0,2,0},
-				{0,0,2,0},
-				{0,0,2,0}
-
-			}
-
-		};
+		const int block1[4][4][4];
 
 		//Block 2
-		const int block2[4][4][4] = {
-			{
-				{0,0,0,0},
-				{0,2,2,0},
-				{0,2,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,0,0},
-				{0,2,2,0},
-				{0,2,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,0,0},
-				{0,2,2,0},
-				{0,2,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,0,0},
-				{0,2,2,0},
-				{0,2,2,0},
-				{0,0,0,0}
-			}
-
-		};
+		const int block2[4][4][4];
 
 		//block 3
-		const int block3[4][4][4] = {
-			{
-				{0,0,0,0},
-				{0,2,0,0},
-				{0,2,2,0},
-				{0,0,2,0}
-
-			},
-			
-			{	{0,0,0,0},
-				{0,2,2,0},
-				{2,2,0,0},
-				{0,0,0,0}
-			},
-			
-			{	{0,0,0,0},
-				{0,2,0,0},
-				{0,2,2,0},
-				{0,0,2,0}
-			},
-			
-			{	{0,0,0,0},
-				{0,2,2,0},
-				{2,2,0,0},
-				{0,0,0,0}
-			}
-
-		};
+		const int block3[4][4][4];
 
 		//block 4
-		const int block4[4][4][4] = {
-			{
-				{0,2,0,0},
-				{0,2,0,0},
-				{0,2,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,0,0},
-				{0,2,2,2},
-				{0,2,0,0},
-				{0,0,0,0}
-			},
-			{
-				{0,2,2,0},
-				{0,0,2,0},
-				{0,0,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,0,0},
-				{0,0,2,0},
-				{2,2,2,0},
-				{0,0,0,0}
-			}
-
-		};
+		const int block4[4][4][4];
 
 		//block 5
-		const int block5[4][4][4] = {
-			{
-				{0,0,0,0},
-				{0,2,2,2},
-				{0,0,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,2,0},
-				{0,2,2,0},
-				{0,0,2,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,2,0},
-				{0,2,2,2},
-				{0,0,0,0},
-				{0,0,0,0}
-			},
-			{
-				{0,0,2,0},
-				{0,0,2,2},
-				{0,0,2,0},
-				{0,0,0,0}
-			}
-		};
+		const int block5[4][4][4];
 
 
 		//Base class of blocks
@@ -193,80 +48,131 @@ namespace tetris {
 			int y; // y-cordinate
 			int rotationCount; // shape[0][y][x], shape[1][y][x], shape[2][y][x], shape[3][y][x]로 4가지 상태 표현
 		public:
-			int getShape(int rotationCount, int y, int x) {
-				return shape[rotationCount][y][x];
-			}
+			int getShape(int rotationCount, int y, int x);
 
-			int getY() {
-				return y;
-			}
+			int getY();
 
-			int getX(){
-				return x;
-			}
+			int getX();
 
-			int getRotationCount() {
-				return rotationCount;
-			}
+			int getRotationCount();
 
-			void down() { //move one step down
-				y++; 
-			}
+			void down();
 
-			void left() {
-				x--;  //move one step to the left
-			}
+			void left();
 			
-			void right() {
-				x++; //move one step to the right
-			}
+			void right();
 
-			void rotate() {
-				rotationCount = (rotationCount + 1) % 4; //0,1,2,3
-			}
+			void rotate();
 		};
 
-		//class block1
-		class Block1 : public Block {
-		public:
-			Block1() {
-				x = TABLE_X / 2 - 3;
-				y = 1;
-				rotationCount = 0;
-				for (int i = 0; i < 4; i++) {
-					for (int j = 0; j < 4; j++) {
-						for (int k = 0; k < 4; k++) {
-							shape[i][j][k] = block1[i][j][k];
-						}
+		////class block1
+		//class Block1 : public Block {
+		//public:
+		//	Block1() {
+		//		x = TABLE_X / 2 - 3;
+		//		y = 1;
+		//		rotationCount = 0;
+		//		for (int i = 0; i < 4; i++) {
+		//			for (int j = 0; j < 4; j++) {
+		//				for (int k = 0; k < 4; k++) {
+		//					shape[i][j][k] = block1[i][j][k];
+		//				}
+		//			}
+		//		}
+		//	}
+		//};
+
+		////Class Block2
+		//class Block2 :public Block {
+		//public:
+		//	Block2() {
+		//		x = TABLE_X / 2 - 3;
+		//		y = 1;
+		//		rotationCount = 0;
+		//		for (int i = 0; i < 4; i++) {
+		//			for (int j = 0; i < 4; j++) {
+		//				for (int k = 0; k < 4; k++) {
+		//					shape[i][j][k] = block2[i][j][k];
+		//				}
+		//			}
+		//		}
+		//	}
+
+		//};
+
+		////class Block3
+		//class Block3 : public Block {
+		//public:
+		//	Block3() {
+		//		x = TABLE_X / 2 - 3;
+		//		y = 1;
+		//		rotationCount = 0;
+		//		for (int i = 0; i < 4; i++) {
+		//			for (int j = 0; i < 4; i++) {
+		//				for (int k = 0; k < 4; k++) {
+		//					shape[i][j][k] = block3[i][j][k];
+		//				}
+		//			}
+		//		}
+		//	}
+		//};
+
+
+		////class Block4
+		//class Block4: public Block {
+		//public:
+		//	Block4() {
+		//		x = TABLE_X / 2 - 3;
+		//		y = 1;
+		//		rotationCount = 0;
+		//		for (int i=0; i < 4; i++) {
+		//			for (int j = 0; j < 4; j++) {
+		//				for (int k = 0; k < 4; k++) {
+		//					shape[i][j][k] = block4[i][j][k];
+		//				}
+		//			}
+		//		}
+		//	}
+
+		//};
+
+		////class Block5
+		//class Block5 : public Block {
+		//public:
+		//	Block5() {
+		//		x = TABLE_X / 2 - 3;
+		//		y = 1;
+		//		rotationCount = 0;
+		//		for (int i = 0; i < 4; i++) {
+		//			for (int j = 0; j < 4; j++) {
+		//				for (int k = 0; k < 4; k++) {
+		//					shape[i][j][k] = block5[i][j][k];
+		//				}
+		//			}
+		//		}
+		//	}
+
+		//};
+
+
+	template<const int block[4][4][4]>
+	class TemplatedBlock : public Block {
+	public:
+		TemplatedBlock() {
+			x = TABLE_X / 2 - 3;
+			y = 1;
+			rotationCount = 0;
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					for (int k = 0; k < 4; k++) {
+						shape[i][j][k] = block[i][j][k];
 					}
 				}
 			}
-		};
 
-		//Class Block2
-		class Block2 :public Block {
-		public:
-			Block2() {
-				x = TABLE_X / 2 - 3;
-				y = 1;
-				rotationCount = 0;
-				for (int i = 0; i < 4; i++) {
-					for (int j = 0; i < 4; j++) {
-						for (int k = 0; k < 4; k++) {
-							shape[i][j][k] = block2[i][j][k];
-						}
-					}
-				}
-			}
+		}
+	};
 
-
-
-
-		};
-
-
-
-	
 
 }
 

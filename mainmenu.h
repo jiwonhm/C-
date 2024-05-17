@@ -35,6 +35,10 @@ namespace tetris {
 			system("cls"); //console clear
 		}
 	};
+
+	class GamePlay
+	//1 gameplay,  2 block roation
+
 }
 
 #endif
