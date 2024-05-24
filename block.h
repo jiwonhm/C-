@@ -2,42 +2,41 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include <windows.h>
-#include <cstdlib> // rand
-#include <ctime> // time
-
-
-#define TABLE_X 20 //x-axix of tetris
-#define TABLE_Y 38 //y-axix of tetris
-#define LEFT 75 // <-
-#define LEFT 75 // <-
-#define RIGHT 77 // ->
-#define UP 71 // ก่
-#define DOWN 80 // ก้
+//#include <iostream>
+//#include <vector>
+//#include <conio.h>
+//#include <windows.h>
+//#include "mainmenu.h"
+//
+//
+//#define TABLE_X 20 //x-axix of tetris
+//#define TABLE_Y 38 //y-axix of tetris
+//#define LEFT 75 // <-
+//#define LEFT 75 // <-
+//#define RIGHT 77 // ->
+//#define UP 71 // ก่
+//#define DOWN 80 // ก้
 
 
 namespace tetris {
-	void CursorView(char show);
+	//void CursorView(char show);
 
-	void gotoxy(int x, int y);
+	//void gotoxy(int x, int y);
 
-		//Block 1
-		const int block1[4][4][4];
+	//	//Block 1
+	//	const int block1[4][4][4];
 
-		//Block 2
-		const int block2[4][4][4];
+	//	//Block 2
+	//	const int block2[4][4][4];
 
-		//block 3
-		const int block3[4][4][4];
+	//	//block 3
+	//	const int block3[4][4][4];
 
-		//block 4
-		const int block4[4][4][4];
+	//	//block 4
+	//	const int block4[4][4][4];
 
-		//block 5
-		const int block5[4][4][4];
+	//	//block 5
+	//	const int block5[4][4][4];
 
 
 		//Base class of blocks
@@ -173,6 +172,15 @@ namespace tetris {
 		}
 	};
 
+	/*TemplatedBlock<block1> block1Instance;
+	TemplatedBlock<block2> block2Instance;
+	TemplatedBlock<block3> block3Instance;
+	TemplatedBlock<block4> block4Instance;
+	TemplatedBlock<block5> block5Instance;*/
+
+
+
+		
 
 }
 

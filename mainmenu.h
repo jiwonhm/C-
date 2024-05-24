@@ -4,19 +4,20 @@
 #include<iostream>
 #include<vector>
 #include <conio.h>
+#include "block.h"
+
+#define TABLE_X 20 //x-axix of tetris
+#define TABLE_Y 38 //y-axix of tetris
+#define LEFT 75 // <-
+#define LEFT 75 // <-
+#define RIGHT 77 // ->
+#define UP 71 // ↑
+#define DOWN 80 // ↓
 
 using namespace std;
 
 namespace tetris {
-	class GameTable {
-		int m_x;
-		int m_y;
-		std::vector<std::vector<int>> table; // Table 0 = " ", 1 = "▦" , 2  = "■"
-	public:
-		GameTable(int x, int y);
-		void DrawGameTable();
-
-	};
+	
 
 	class MainMenu {
 	public:
@@ -36,8 +37,15 @@ namespace tetris {
 		}
 	};
 
-	class GamePlay
-	//1 gameplay,  2 block roation
+	class GamePlay {
+	private:
+		GameTable* gt;
+	public:
+		GamePlay() {
+			gt = new GameTable(TABLE_X, TABLE_Y); //게임 판 그리기 객체 생성
+			gt->createBlock();
+		}
+	};
 
 }
 

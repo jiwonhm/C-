@@ -1,33 +1,33 @@
 #pragma once
 
 
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include <windows.h>
-#include <cstdlib> // rand
-#include <ctime> // time
+//#include <iostream>
+//#include <vector>
+//#include <conio.h>
+//#include <windows.h>
+//#include <cstdlib> // rand
+//#include <ctime> // time
 #include "block.h"
 
 
 namespace tetris {
-	void CursorView(char show) {
-		HANDLE hConsole;
-		CONSOLE_CURSOR_INFO ConsoleCursor; //CONSOLE_CURSOR_INFO 주로 커서의 가시성(bVisible)과 커서의 크기(dwSize)를 관리
+	//void CursorView(char show) {
+	//	HANDLE hConsole;
+	//	CONSOLE_CURSOR_INFO ConsoleCursor; //CONSOLE_CURSOR_INFO 주로 커서의 가시성(bVisible)과 커서의 크기(dwSize)를 관리
 
-		hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // GetStdHandle 내장함수: 콘솔에 적용
+	//	hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // GetStdHandle 내장함수: 콘솔에 적용
 
-		ConsoleCursor.bVisible = show; //visible = 1, invisible = 0
-		ConsoleCursor.dwSize = 1; // 1~100 숫자가 클 수록 커서가 더 두꺼워짐
+	//	ConsoleCursor.bVisible = show; //visible = 1, invisible = 0
+	//	ConsoleCursor.dwSize = 1; // 1~100 숫자가 클 수록 커서가 더 두꺼워짐
 
-		SetConsoleCursorInfo(hConsole, &ConsoleCursor); //내장함수: CONSOLE_CURSOR_INFO 구조체를 사용하여 커서의 상태를 설정
-		//매개변수 순서 (어떤 콘솔창에 변경을 적용할지, 어떻게 변경할지 정보를 담고 있음)
-	}
+	//	SetConsoleCursorInfo(hConsole, &ConsoleCursor); //내장함수: CONSOLE_CURSOR_INFO 구조체를 사용하여 커서의 상태를 설정
+	//	//매개변수 순서 (어떤 콘솔창에 변경을 적용할지, 어떻게 변경할지 정보를 담고 있음)
+	//}
 
-	void gotoxy(int x, int y) {
-		COORD pos = { x,y };
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-	}
+	//void gotoxy(int x, int y) {
+	//	COORD pos = { x,y };
+	//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	//}
 
 	//Block 1
 	const int block1[4][4][4] = {
@@ -210,95 +210,6 @@ namespace tetris {
 		}
 
 
-	////class block1
-	//class Block1 : public Block {
-	//public:
-	//	Block1() {
-	//		x = TABLE_X / 2 - 3;
-	//		y = 1;
-	//		rotationCount = 0;
-	//		for (int i = 0; i < 4; i++) {
-	//			for (int j = 0; j < 4; j++) {
-	//				for (int k = 0; k < 4; k++) {
-	//					shape[i][j][k] = block1[i][j][k];
-	//				}
-	//			}
-	//		}
-	//	}
-	//};
-
-	////Class Block2
-	//class Block2 :public Block {
-	//public:
-	//	Block2() {
-	//		x = TABLE_X / 2 - 3;
-	//		y = 1;
-	//		rotationCount = 0;
-	//		for (int i = 0; i < 4; i++) {
-	//			for (int j = 0; i < 4; j++) {
-	//				for (int k = 0; k < 4; k++) {
-	//					shape[i][j][k] = block2[i][j][k];
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//};
-
-	////class Block3
-	//class Block3 : public Block {
-	//public:
-	//	Block3() {
-	//		x = TABLE_X / 2 - 3;
-	//		y = 1;
-	//		rotationCount = 0;
-	//		for (int i = 0; i < 4; i++) {
-	//			for (int j = 0; i < 4; i++) {
-	//				for (int k = 0; k < 4; k++) {
-	//					shape[i][j][k] = block3[i][j][k];
-	//				}
-	//			}
-	//		}
-	//	}
-	//};
-
-
-	////class Block4
-	//class Block4: public Block {
-	//public:
-	//	Block4() {
-	//		x = TABLE_X / 2 - 3;
-	//		y = 1;
-	//		rotationCount = 0;
-	//		for (int i=0; i < 4; i++) {
-	//			for (int j = 0; j < 4; j++) {
-	//				for (int k = 0; k < 4; k++) {
-	//					shape[i][j][k] = block4[i][j][k];
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//};
-
-	////class Block5
-	//class Block5 : public Block {
-	//public:
-	//	Block5() {
-	//		x = TABLE_X / 2 - 3;
-	//		y = 1;
-	//		rotationCount = 0;
-	//		for (int i = 0; i < 4; i++) {
-	//			for (int j = 0; j < 4; j++) {
-	//				for (int k = 0; k < 4; k++) {
-	//					shape[i][j][k] = block5[i][j][k];
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//};
-
 
 	template<const int block[4][4][4]>
 	class TemplatedBlock : public Block {
@@ -319,5 +230,12 @@ namespace tetris {
 	};
 
 
-}
+	
+
+	}
+
+
+
+
+
 
