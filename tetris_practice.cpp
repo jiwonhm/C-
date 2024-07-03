@@ -322,12 +322,14 @@ class GameTable {
 private:
     int x; //horizonal axis
     int y; // vertical axis
+    Block* blockObject; 
     vector<vector<int>> table; // 테이블 판 0 = " ", 1 = "▦" , 2  = "■"
 
 public:
     GameTable(int x, int y) {
         this->x = x;
         this->y = y;
+        blockObject = nullptr;
         for (int i = 0; i < y; i++) {
             vector<int> temp; //y개 만큼 행 생성
             for (int j = 0; j < x; j++) {
@@ -361,7 +363,31 @@ public:
 
 //1.1 블럭 생성 
 void creatBlock() {
+    srand((unsigned int)time(NULL)); //난수 시드 생성
+    int select = rand() % 5 + 1; //난수를 통해 1~5블럭
+    if (select == 1) {
+        blocKObject = new Block1();
+    }
+    else if (select == 2) {
+        blockObject = new Block2();
+    }
+    else if (select == 3) {
+        blockObject = new Block3();
+    }
+    else if (select == 4) {
+        blockObject = new Block4();
+    }
+    else if (select == 5) {
+        blockObject = new Block5();
+    }
 
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            int Y = j + blockObject->getY(); //왜 i가 아닌지 부터 @@@@@@@@@@@@@@@
+            int X = i + blockObject->getX();
+            table[Y][X] = blockObeject->getShape() //
+        }
+    }
 }
 
 
