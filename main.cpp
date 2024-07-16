@@ -1,33 +1,62 @@
 #include <iostream>
-#include <vector>
-#include <string>
-#include <conio.h>
-#include <windows.h>
-#include <cstdlib> // rand
-#include <ctime> // time
-#include "mainmenu.h"
-#include "block.h"
-
-#define TABLE_X 20 //x-axix of tetris
-#define TABLE_Y 38 //y-axix of tetris
-#define LEFT 75 // <-
-#define LEFT 75 // <-
-#define RIGHT 77 // ->
-#define UP 71 // ก่
-#define DOWN 80 // ก้
+#include "display.h"
+#include "addition.h"
+#include "subtraction.h"
+#include "division.h"
+#include "multiplication.h"
 
 using namespace std;
-using namespace tetris;
+using namespace cal;
 
-int main() {
+	int main() {
+		double number, number2;
+		char op;
 
-	MainMenu start; //game start interface
+		while (true) {
 
-	GameTable gt(TABLE_X, TABLE_Y); //make object
-	MainMenu(); 
-	gt.DrawGameTable();
-	_getch();
+			cout << "Enter first number: ";
+			cin >> number;
 
+			cout << "Enter an operator(+,-,*,/): ";
+			cin >> op;
 
-	return 0;
-}
+			cout << "Enter second number: ";
+			cin >> number2;
+
+			switch (op) {
+			case '+': {
+				addition add;
+				add.showresults(number, number2);
+				cout << "\n";
+				break;
+			}
+			case '-': {
+				subtraction sub;
+				sub.showresults(number, number2);
+				cout << "\n";
+				break;
+			}
+
+			case '*': {
+				multiplication mul;
+				mul.showresults(number, number2);
+				cout << "\n";
+				break;
+			}
+
+			case '/': {
+				division div;
+				div.showresults(number, number2);
+				cout << "\n";
+				break;
+			}
+
+			default:
+				cout << "Enter the correct operator (+,-,/,*)";
+				cout << "\n";
+				break;
+			}
+		}
+		return 0;
+
+	}
