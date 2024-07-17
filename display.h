@@ -2,14 +2,16 @@
 #include <iostream>
 #ifndef DISPLAY
 #define DISPLAY
-using namespace std;
+
 
 namespace cal {
 
 	class display {
+
 	public:
-		virtual void showresults(double, double)=0;
+		virtual void showresults() = 0;
 	};
+
 
 }
 
