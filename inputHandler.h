@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 #ifndef HANDLER
 #define HANDLER
 
@@ -12,7 +13,7 @@ namespace cal {
 		int inputSize;
 		int operationSize;
 
-	private:
+	public:
 		getInput():input(nullptr), operations(nullptr),inputSize(0),operationSize(0){}
 		
 		//rule of three
@@ -27,13 +28,32 @@ namespace cal {
 			}
 
 			operations = new char[operationSize];
-			for (int i; i < operationSize; i++) {
+			for (int i=0; i < operationSize; i++) {
 				operations[i] = other.operations[i];
 			}
 		}
 
 		//coppy assignment
+		getInput& operator=(const getInput& other) {
+			if (this != &other) {
+				delete[] input;
+				delete[] operations;
 
+				inputSize = other.inputSize;
+				operationSize = other.operationSize;
+
+			
+				input = new double[other.inputSize];
+				for (int i = 0; i < inputSize; i++) {
+					input[i] = other.input[i];
+				}
+
+				operations = new char[other.operationSize + 1];
+				strcpy(operations, other.operations);
+
+			}
+			return *this;
+		}
 
 
 		//Destructor
@@ -41,6 +61,9 @@ namespace cal {
 			delete[] operations;
 			delete[] input;
 		}
+
+		void userinput();
+
 
 	};
 

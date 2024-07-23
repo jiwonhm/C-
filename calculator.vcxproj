@@ -127,18 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="addition.cpp" />
-    <ClCompile Include="division.cpp" />
+    <ClCompile Include="calculation.cpp" />
+    <ClCompile Include="inputHandlercpp.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="multiplication.cpp" />
-    <ClCompile Include="subtraction.cpp" />
+    <ClCompile Include="operations.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="addition.h" />
+    <ClInclude Include="calculation.h" />
     <ClInclude Include="display.h" />
-    <ClInclude Include="division.h" />
-    <ClInclude Include="multiplication.h" />
-    <ClInclude Include="subtraction.h" />
+    <ClInclude Include="inputHandler.h" />
+    <ClInclude Include="operations.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

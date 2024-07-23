@@ -1,5 +1,7 @@
 #include <iostream>
 #include "display.h"
+#include "operations.h"
+
 
 
 using namespace std;
@@ -17,25 +19,25 @@ using namespace cal;
 		
 			switch (op) {
 			case '+': {
-				addition add;
-				add.showresults(number, number2);
+				addition add1;
+				add1.add(number, number2);
 				break;
 			}
 			case '-': {
-				subtraction sub;
-				sub.showresults(number, number2);
+				subtraction sub1;
+				sub1.sub(number, number2);
 				break;
 			}
 
 			case '*': {
-				multiplication mul;
-				mul.showresults(number, number2);
+				multiplication multi1;
+				multi1.multi(number, number2);
 				break;
 			}
 
 			case '/': {
-				division div;
-				div.showresults(number, number2);
+				division div1;
+				div1.div(number, number2);
 				break;
 			}
 

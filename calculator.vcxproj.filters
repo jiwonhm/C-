@@ -15,36 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="addition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="division.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="multiplication.cpp">
+    <ClCompile Include="operations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="subtraction.cpp">
+    <ClCompile Include="calculation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inputHandlercpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="addition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="division.h">
+    <ClInclude Include="operations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="multiplication.h">
+    <ClInclude Include="calculation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="subtraction.h">
+    <ClInclude Include="inputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
