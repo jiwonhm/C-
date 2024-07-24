@@ -62,9 +62,18 @@ namespace cal {
 			delete[] input;
 		}
 
-		void userinput();
+		void userinput(); //숫자 연산자 반복해서 입력받고 = 받으면 입력 중지하는 역할
+		double* getInputs() const;//input배열의 포인터 반환
+		
+		
+		char* getOperations() const; //연산자 배열 반환
+		
+		
+		int getInputSize() const; //입력된 숫자의 개수 반환
+			
 
-
+		int getOperationSize() const; //입력된 연산자 개수 반환
+		
 	};
 
 
