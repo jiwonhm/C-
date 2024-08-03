@@ -29,9 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="operations.h">
       <Filter>Header Files</Filter>
     </ClInclude>

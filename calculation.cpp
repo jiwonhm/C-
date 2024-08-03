@@ -27,13 +27,38 @@ namespace cal {
 	}
 
 	double calculation::evaluate(const double* numbers, const char* op, int numSize, int opSize) {
-		double result = numbers[0]; //√ ±‚»≠
+	
+	
+			//[ * and / ]are must be calculated at first
+			double* intermediateNumbers = new double[numSize];
+			char* intermediateOps = new char[opSize];
+			int intermediateNumSize = 0;
+			int intermediateOpSize = 0;
 
-		for (int i = 0; i < opSize; i++) {
-			result = applyOperation(result, numbers[i + 1], op[i]);
-		}
+			intermediateNumbers[intermediateNumSize++] = numbers[0];
 
-		return result;
+
+			for (int i = 0; i < opSize; i++) {
+				if (op[i] == '*' || op[i] == '/') {
+					double result = applyOperation(intermediateNumbers[intermediateNumSize - 1], numbers[i + 1], op[i]);
+					intermediateNumbers[intermediateNumSize - 1] = result;
+				}
+				else {
+					intermediateOps[intermediateOpSize++] = op[i];
+					intermediateNumbers[intermediateNumSize++] = numbers[i + 1];
+				}
+			}
+
+			// 2. µ°º¿∞˙ ª¨º¿¿ª √≥∏Æ
+			double result = intermediateNumbers[0];
+			for (int i = 0; i < intermediateOpSize; i++) {
+				result = applyOperation(result, intermediateNumbers[i + 1], intermediateOps[i]);
+			}
+
+			delete[] intermediateNumbers;
+			delete[] intermediateOps;
+
+			return result;
 	}
 }
 

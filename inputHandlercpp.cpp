@@ -6,7 +6,7 @@ using namespace std;
 namespace cal {
 	void getInput::userinput() {
 		double num;
-		char op;
+		char op = ' ';
 		
 		cout << "input the expression (end with '='): ";
 		
@@ -25,7 +25,7 @@ namespace cal {
 			inputSize++;
 
 			cin >> op;
-			if (op == '"') { //'='일 때 종료
+			if (op == '=') { //'='일 때 종료
 				break;
 			}
 			char* newOperation = new char[operationSize + 1];
@@ -34,6 +34,7 @@ namespace cal {
 			}
 			
 			newOperation[operationSize] = op;
+
 			delete[] operations;
 			operations = newOperation;
 			operationSize++;

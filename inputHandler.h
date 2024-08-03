@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #pragma once
 #include <iostream>
 #include <cstring>
@@ -14,7 +15,7 @@ namespace cal {
 		int operationSize;
 
 	public:
-		getInput():input(nullptr), operations(nullptr),inputSize(0),operationSize(0){}
+		getInput():input(nullptr), operations(nullptr),inputSize(0),operationSize(0){} //constructor
 		
 		//rule of three
 		//copy constructor
@@ -49,7 +50,9 @@ namespace cal {
 				}
 
 				operations = new char[other.operationSize + 1];
-				strcpy(operations, other.operations);
+				/*strcpy(operations, other.operations);*/
+				strcpy_s(operations, other.operationSize + 1, other.operations);
+
 
 			}
 			return *this;

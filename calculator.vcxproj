@@ -134,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calculation.h" />
-    <ClInclude Include="display.h" />
     <ClInclude Include="inputHandler.h" />
     <ClInclude Include="operations.h" />
   </ItemGroup>
