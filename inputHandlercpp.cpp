@@ -12,6 +12,16 @@ namespace cal {
 		
 		while (op != '=') {
 			cin >> num;
+
+			//alert when user inputs wrong things
+			if (cin.fail()) {
+				cin.clear(); // Clear the stream state
+				cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ingnore the invlid input
+				continue; // Skip to the next iteration of the loop
+			}
+			
+
+
 			double* newInput = new double[inputSize + 1];
 
 			for (int i = 0; i < inputSize; i++) {
@@ -28,6 +38,15 @@ namespace cal {
 			if (op == '=') { //'='일 때 종료
 				break;
 			}
+			
+			// Skip to the next iteration of the loop
+			if (op != '+' && op != '-' && op != '*' && op != '/') {
+				cout<< "Invalid operator. Please enter a valid operator: ";
+				continue; 
+			}
+
+
+
 			char* newOperation = new char[operationSize + 1];
 			for (int i = 0; i < operationSize; i++) {
 				newOperation[i] = operations[i];
